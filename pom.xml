@@ -1,0 +1,29 @@
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>id.silvergen</groupId>
+    <artifactId>adpro</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>adpro</name>
+    <url>http://maven.apache.org</url>
+    <build>
+        <finalName>adpro</finalName>
+        <plugins>
+            <plugin>
+                <groupId>com.jelastic</groupId>
+                <artifactId>jelastic-maven-plugin</artifactId>
+                <version>1.9</version>
+                <configuration>
+                    <apiToken>a19ccbb3f0c04ffebe55b05a22f66ce47174f219</apiToken>
+                    <context>ROOT</context>
+                    <environment>adpro</environment>
+                    <comment>deploy</comment>
+                    <api_hoster>app.kilatiron.com</api_hoster>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
