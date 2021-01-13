@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://villageBrowse.caption"
+        focusComponent="villagesTable"
+        messagesPack="id.silvergen.adpro.web.screens.village">
+    <data readOnly="true">
+        <collection id="villagesDc"
+                    class="id.silvergen.adpro.entity.Village">
+            <view extends="_local">
+                <property name="district" view="_minimal">
+                    <property name="regency" view="_minimal">
+                        <property name="province" view="_minimal"/>
+                    </property>
+                </property>
+            </view>
+            <loader id="villagesDl">
+                <query>
+                    <![CDATA[select e from adpro_Village e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="villagesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="villagesTable"
+                dataLoader="villagesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="villagesTable"
+                    width="100%"
+                    dataContainer="villagesDc"
+                    multiselect="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="id"/>
+                <column id="district"/>
+                <column id="name"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="villagesTable.create"/>
+                <button id="editBtn" action="villagesTable.edit"/>
+                <button id="removeBtn" action="villagesTable.remove"/>
+                <button id="refreshBtn" action="villagesTable.refresh"/>
+                <button id="excelBtn" action="villagesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

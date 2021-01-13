@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://districtBrowse.caption"
+        focusComponent="districtsTable"
+        messagesPack="id.silvergen.adpro.web.screens.district">
+    <data readOnly="true">
+        <collection id="districtsDc"
+                    class="id.silvergen.adpro.entity.District">
+            <view extends="_local">
+                <property name="regency" view="_minimal">
+                    <property name="province" view="_minimal"/>
+                </property>
+            </view>
+            <loader id="districtsDl">
+                <query>
+                    <![CDATA[select e from adpro_District e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="districtsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="districtsTable"
+                dataLoader="districtsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="districtsTable"
+                    width="100%"
+                    dataContainer="districtsDc"
+                    multiselect="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="id"/>
+                <column id="regency"/>
+                <column id="name"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="districtsTable.create"/>
+                <button id="editBtn" action="districtsTable.edit"/>
+                <button id="removeBtn" action="districtsTable.remove"/>
+                <button id="refreshBtn" action="districtsTable.refresh"/>
+                <button id="excelBtn" action="districtsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

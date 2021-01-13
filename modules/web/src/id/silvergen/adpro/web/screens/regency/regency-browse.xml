@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://regencyBrowse.caption"
+        focusComponent="regenciesTable"
+        messagesPack="id.silvergen.adpro.web.screens.regency">
+    <data readOnly="true">
+        <collection id="regenciesDc"
+                    class="id.silvergen.adpro.entity.Regency">
+            <view extends="_local">
+                <property name="province" view="_minimal"/>
+            </view>
+            <loader id="regenciesDl">
+                <query>
+                    <![CDATA[select e from adpro_Regency e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="regenciesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="regenciesTable"
+                dataLoader="regenciesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="regenciesTable"
+                    width="100%"
+                    dataContainer="regenciesDc"
+                    multiselect="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="id"/>
+                <column id="province"/>
+                <column id="name"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="regenciesTable.create"/>
+                <button id="editBtn" action="regenciesTable.edit"/>
+                <button id="removeBtn" action="regenciesTable.remove"/>
+                <button id="refreshBtn" action="regenciesTable.refresh"/>
+                <button id="excelBtn" action="regenciesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

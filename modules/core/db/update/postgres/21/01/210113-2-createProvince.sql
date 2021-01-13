@@ -1,0 +1,1 @@
+create index IDX_ADPRO_PROVINCE on ADPRO_PROVINCE (NAME);

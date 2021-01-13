@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://villageEdit.caption"
+        focusComponent="form"
+        messagesPack="id.silvergen.adpro.web.screens.village">
+    <data>
+        <instance id="villageDc"
+                  class="id.silvergen.adpro.entity.Village">
+            <view extends="_local">
+                <property name="district" view="_minimal">
+                    <property name="regency" view="_minimal">
+                        <property name="province" view="_minimal"/>
+                    </property>
+                </property>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="villageDc">
+            <column width="350px">
+                <textField id="idField" property="id"/>
+                <pickerField id="districtField" property="district">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <textField id="nameField" property="name"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
