@@ -7,10 +7,10 @@
     <artifactId>adpro</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>adpro</name>
+    <name>app</name>
     <url>http://maven.apache.org</url>
     <build>
-        <finalName>adpro</finalName>
+        <finalName>app</finalName>
         <plugins>
             <plugin>
                 <groupId>com.jelastic</groupId>
