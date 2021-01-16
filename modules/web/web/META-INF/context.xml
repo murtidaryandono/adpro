@@ -1,4 +1,4 @@
-<Context antiResourceLocking="true">
+<Context>
 
     <!-- Switch off session serialization -->
     <Manager pathname=""/>
