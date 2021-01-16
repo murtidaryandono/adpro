@@ -217,9 +217,9 @@ task buildWar(type: CubaWarBuilding) {
     appProperties = ['cuba.automaticDatabaseUpdate': true,
                      'cuba.logDir'                 : '${catalina.base}/logs',
                      'cuba.dataSource.username'    : 'webadmin',
-                     'cuba.dataSource.password'    : 'HKPtlh13485',
+                     'cuba.dataSource.password'    : 'DDHodt72379',
                      'cuba.dataSource.dbName'      : 'adpro',
-                     'cuba.dataSource.host'        : 'node27796-adpro.kilatiron.com',
+                     'cuba.dataSource.host'        : 'node27858-adpro.kilatiron.com',
                      'cuba.dataSource.port'        : '',
                      'cuba.dataSourceProvider'     : 'application']
     webXmlPath = 'modules/web/web/WEB-INF/single-war-web.xml'
