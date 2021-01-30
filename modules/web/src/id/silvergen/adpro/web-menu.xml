@@ -5,5 +5,6 @@
         <item screen="adpro_Regency.browse" caption="mainMsg://menu_config.adpro_Regency.browse"/>
         <item screen="adpro_District.browse" caption="mainMsg://menu_config.adpro_District.browse"/>
         <item screen="adpro_Village.browse" caption="mainMsg://menu_config.adpro_Village.browse"/>
+        <item screen="adpro_Inbox.browse" caption="mainMsg://menu_config.adpro_Inbox.browse"/>
     </menu>
 </menu-config>

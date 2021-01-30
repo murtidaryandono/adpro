@@ -1,5 +1,6 @@
 package id.silvergen.adpro.entity;
 
+import com.haulmont.addon.sdbmt.entity.TenantUser;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.*;
 
@@ -8,21 +9,26 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Table(name = "ADPRO_PROVINCE", indexes = {
-        @Index(name = "IDX_ADPRO_PROVINCE", columnList = "NAME")
+@Table(name = "ADPRO_INBOX", indexes = {
+        @Index(name = "IDX_ADPRO_INBOX", columnList = "TITLE, MESSAGE, USER_ID")
 })
-@Entity(name = "adpro_Province")
-@NamePattern("%s|name")
-public class Province extends BaseStringIdEntity implements Creatable, Updatable, SoftDelete, Versioned {
-    private static final long serialVersionUID = -4674697357172122593L;
-
-    @Id
-    @Column(name = "ID", nullable = false, length = 2)
-    private String id;
+@Entity(name = "adpro_Inbox")
+@NamePattern("%s|title")
+public class Inbox extends BaseLongIdEntity implements Creatable, Updatable, SoftDelete, Versioned {
+    private static final long serialVersionUID = 7948862218850749102L;
 
     @NotNull
-    @Column(name = "NAME", nullable = false)
-    private String name;
+    @Column(name = "TITLE", nullable = false)
+    private String title;
+
+    @NotNull
+    @Column(name = "MESSAGE", nullable = false, length = 1028)
+    private String message;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "USER_ID")
+    private TenantUser user;
 
     @Column(name = "CREATE_TS")
     private Date createTs;
@@ -46,12 +52,28 @@ public class Province extends BaseStringIdEntity implements Creatable, Updatable
     @Column(name = "VERSION", nullable = false)
     private Integer version;
 
-    public String getName() {
-        return name;
+    public TenantUser getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(TenantUser user) {
+        this.user = user;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override
@@ -125,13 +147,4 @@ public class Province extends BaseStringIdEntity implements Creatable, Updatable
         this.createTs = createTs;
     }
 
-    @Override
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getId() {
-        return id;
-    }
 }

@@ -6,5 +6,6 @@
         <class>id.silvergen.adpro.entity.Regency</class>
         <class>id.silvergen.adpro.entity.District</class>
         <class>id.silvergen.adpro.entity.Village</class>
+        <class>id.silvergen.adpro.entity.Inbox</class>
     </persistence-unit>
 </persistence>
