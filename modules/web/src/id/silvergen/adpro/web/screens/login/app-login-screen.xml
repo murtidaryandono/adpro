@@ -37,32 +37,30 @@
                               spacing="true">
                             <textField id="loginField"
                                        htmlName="loginField"
-                                       icon="USER"
                                        inputPrompt="mainMsg://loginWindow.loginPlaceholder"
                                        height="40px"
                                        width="350px"
-                                       stylename="c-login-field inline-icon"/>
+                                       stylename="c-login-field" align="MIDDLE_LEFT"/>
                             <passwordField id="passwordField"
                                            autocomplete="true"
                                            capsLockIndicator="capsLockIndicator"
                                            htmlName="passwordField"
-                                           icon="LOCK"
                                            inputPrompt="mainMsg://loginWindow.passwordPlaceholder"
                                            height="40px"
                                            width="350px"
-                                           stylename="c-login-field inline-icon"/>
+                                           stylename="c-login-field" align="MIDDLE_LEFT"/>
                             <hbox id="paramsBox"
                                   align="MIDDLE_CENTER"
                                   width="350px">
                                 <checkBox id="rememberMeCheckBox"
                                           align="MIDDLE_LEFT"
                                           stylename="c-login-remember-me-checkbox"
-                                          caption="mainMsg://loginWindow.rememberMe"/>
+                                          caption="msg://loginWindow.rememberMe"/>
                                 <lookupField id="localesSelect"
                                              align="MIDDLE_RIGHT"
                                              nullOptionVisible="false"
                                              stylename="c-login-locales-select borderless"
-                                             textInputAllowed="false" width="200px"/>
+                                             textInputAllowed="false"/>
                             </hbox>
                             <button id="loginButton"
                                     action="submit"
@@ -82,7 +80,7 @@
                            align="MIDDLE_LEFT"
                            htmlEnabled="true"
                            stylename="c-login-powered-by-link"
-                           value="mainMsg://loginWindow.poweredBy"/>
+                           value="msg://loginWindow.poweredBy"/>
                 </hbox>
             </vbox>
             <image id="backgroundImage"

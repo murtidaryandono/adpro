@@ -79,6 +79,8 @@ create table ADPRO_INBOX (
     TITLE varchar(255) not null,
     MESSAGE varchar(1028) not null,
     USER_ID uuid not null,
+    READ_STATUS boolean not null,
+    NOTIFICATION_STATUS boolean not null,
     --
     primary key (ID)
 )^

@@ -30,6 +30,14 @@ public class Inbox extends BaseLongIdEntity implements Creatable, Updatable, Sof
     @JoinColumn(name = "USER_ID")
     private TenantUser user;
 
+    @NotNull
+    @Column(name = "READ_STATUS", nullable = false)
+    private Boolean readStatus = false;
+
+    @NotNull
+    @Column(name = "NOTIFICATION_STATUS", nullable = false)
+    private Boolean notificationStatus = false;
+
     @Column(name = "CREATE_TS")
     private Date createTs;
 
@@ -51,6 +59,22 @@ public class Inbox extends BaseLongIdEntity implements Creatable, Updatable, Sof
     @Version
     @Column(name = "VERSION", nullable = false)
     private Integer version;
+
+    public Boolean getNotificationStatus() {
+        return notificationStatus;
+    }
+
+    public void setNotificationStatus(Boolean notificationStatus) {
+        this.notificationStatus = notificationStatus;
+    }
+
+    public Boolean getReadStatus() {
+        return readStatus;
+    }
+
+    public void setReadStatus(Boolean readStatus) {
+        this.readStatus = readStatus;
+    }
 
     public TenantUser getUser() {
         return user;

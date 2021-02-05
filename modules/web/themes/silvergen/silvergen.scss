@@ -1,0 +1,25 @@
+@import "../helium/helium";
+
+@mixin silvergen {
+  @include helium;
+
+  /* Basic */
+  --primary-color: #1177ab;
+  --primary-color_rgb: 17, 119, 171;
+  --secondary-color: #23b6b6;
+  --secondary-color_rgb: 35, 182, 182;
+
+  /* Common */
+  --primary-color-shade-1: #0f6b9a;
+  --primary-color-shade-2: #0e5f89;
+  --primary-dim-color: #cfe4ee;
+  --secondary-color-shade-1: #20a4a4;
+  --secondary-color-shade-2: #1c9292;
+  --secondary-dim-color: #bde9e9;
+
+  &.dark {
+    /* Common */
+    --primary-dim-color: #052433;
+    --secondary-dim-color: #0a3737;
+  }
+}

@@ -1,0 +1,6 @@
+@import "silvergen-defaults";
+@import "silvergen";
+
+.silvergen {
+  @include silvergen;
+}

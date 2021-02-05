@@ -27,9 +27,10 @@ public class InboxBrowse extends StandardLookup<Inbox> {
         if (userLoggedIn == null)
             throw new IllegalStateException("user logged in parameter is null");
         if (userLoggedIn.getGroup().getName().equals("Root") || userLoggedIn.getGroup().getName().equals("Admin") )
-            inboxesDl.setQuery("select e from adpro_Inbox e");
+            inboxesDl.setQuery("select e from adpro_Inbox e where e.readStatus = false");
         else
-            inboxesDl.setQuery("select e from adpro_Inbox e where e.user.group.name = 'All' or e.user.name = '" + userLoggedIn.getName() +"'");
+            inboxesDl.setQuery("select e from adpro_Inbox e where (e.user.group.name = 'All' or " +
+                    "e.user.name = '" + userLoggedIn.getName() +"') and e.readStatus = false");
         inboxesDl.load();
     }
 }
