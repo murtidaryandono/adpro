@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://institutionEdit.caption"
+        focusComponent="form"
+        messagesPack="id.silvergen.adpro.web.screens.institution">
+    <data>
+        <instance id="institutionDc"
+                  class="id.silvergen.adpro.entity.Institution">
+            <view extends="_local">
+                <property name="province" view="_minimal"/>
+                <property name="regency" view="_minimal"/>
+                <property name="district" view="_minimal"/>
+                <property name="village" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+        <collection id="provincesDc" class="id.silvergen.adpro.entity.Province" view="_minimal">
+            <loader id="provincesDl">
+                <query>
+                    <![CDATA[select e from adpro_Province e where e.name <> 'DEFAULT']]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="regenciesDc" class="id.silvergen.adpro.entity.Regency" view="_minimal">
+            <loader id="regenciesDl">
+                <query>
+                    <![CDATA[select e from adpro_Regency e where e.name <> 'DEFAULT']]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="districtsDc" class="id.silvergen.adpro.entity.District" view="_minimal">
+            <loader id="districtsDl">
+                <query>
+                    <![CDATA[select e from adpro_District e where e.name <> 'DEFAULT']]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="villagesDc" class="id.silvergen.adpro.entity.Village" view="_minimal">
+            <loader id="villagesDl">
+                <query>
+                    <![CDATA[select e from adpro_Village e where e.name <> 'DEFAULT']]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="institutionDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+                <textField id="descriptionField" property="description"/>
+                <textField id="addressField" property="address"/>
+                <textField id="addressAdditionalField" property="addressAdditional"/>
+                <lookupField id="provinceField" optionsContainer="provincesDc" property="province"/>
+                <lookupField id="regencyField" optionsContainer="regenciesDc" property="regency"/>
+                <lookupField id="districtField" optionsContainer="districtsDc" property="district"/>
+                <lookupField id="villageField" optionsContainer="villagesDc" property="village"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

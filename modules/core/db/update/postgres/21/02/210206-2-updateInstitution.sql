@@ -1,0 +1,12 @@
+alter table ADPRO_INSTITUTION add column PROVINCE_ID varchar(2);
+update ADPRO_INSTITUTION set PROVINCE_ID = '00';
+alter table ADPRO_INSTITUTION alter column PROVINCE_ID set not null;
+--alter table ADPRO_INSTITUTION add column PROVINCE_ID varchar(2) not null ;
+alter table ADPRO_INSTITUTION add column REGENCY_ID varchar(4);
+update ADPRO_INSTITUTION set REGENCY_ID = '0000';
+alter table ADPRO_INSTITUTION alter column REGENCY_ID set not null ;
+--alter table ADPRO_INSTITUTION add column REGENCY_ID varchar(4) not null ;
+alter table ADPRO_INSTITUTION add column DISTRICT_ID varchar(7) ;
+update ADPRO_INSTITUTION set DISTRICT_ID = '0000000';
+alter table ADPRO_INSTITUTION alter column DISTRICT_ID set not null;
+--alter table ADPRO_INSTITUTION add column DISTRICT_ID varchar(7) not null ;

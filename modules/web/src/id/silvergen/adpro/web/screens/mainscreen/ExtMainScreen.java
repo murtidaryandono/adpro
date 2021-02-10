@@ -62,8 +62,8 @@ public class ExtMainScreen extends MainScreen {
     public void onInit(InitEvent event) {
         sideMenu.getMenuItem("reports").setIcon("font-icon:FILE");
         sideMenu.getMenuItem("tenant-management").setIcon("font-icon:HOME");
-        sideMenu.getMenuItem("dashboard").setIcon("font-icon:DASHBOARD");
-        sideMenu.getMenuItem("administration").setIcon("font-icon:TABLE");
+        sideMenu.getMenuItem("dashboard").setIcon("font-icon:BAR_CHART");
+        sideMenu.getMenuItem("administration").setIcon("font-icon:FOLDER");
         sideMenu.getMenuItem("help").setIcon("font-icon:HEADPHONES");
         sideMenu.getMenuItem("inbox").setBadgeText(String.valueOf(getInboxCount()));
     }

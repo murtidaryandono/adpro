@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://institutionBrowse.caption"
+        focusComponent="institutionsTable"
+        messagesPack="id.silvergen.adpro.web.screens.institution">
+    <data readOnly="true">
+        <collection id="institutionsDc"
+                    class="id.silvergen.adpro.entity.Institution">
+            <view extends="_local">
+                <property name="province" view="_minimal"/>
+                <property name="regency" view="_minimal"/>
+                <property name="district" view="_minimal"/>
+                <property name="village" view="_minimal"/>
+            </view>
+            <loader id="institutionsDl">
+                <query>
+                    <![CDATA[select e from adpro_Institution e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="institutionsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="institutionsTable"
+                dataLoader="institutionsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="institutionsTable"
+                    width="100%"
+                    dataContainer="institutionsDc"
+                    multiselect="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="description"/>
+                <column id="address"/>
+                <column id="addressAdditional"/>
+                <column id="province"/>
+                <column id="regency"/>
+                <column id="district"/>
+                <column id="village"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="institutionsTable.create"/>
+                <button id="editBtn" action="institutionsTable.edit"/>
+                <button id="removeBtn" action="institutionsTable.remove"/>
+                <button id="refreshBtn" action="institutionsTable.refresh"/>
+                <button id="excelBtn" action="institutionsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

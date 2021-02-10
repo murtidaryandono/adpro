@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
-    <menu icon="font-icon:MAP" id="administrative-data" caption="mainMsg://menu_config.application-adpro">
+    <menu icon="font-icon:MAP" id="administrative-data" caption="mainMsg://menu_config.administrative-data">
         <item screen="adpro_Province.browse" caption="mainMsg://menu_config.adpro_Province.browse"/>
         <item screen="adpro_Regency.browse" caption="mainMsg://menu_config.adpro_Regency.browse"/>
         <item screen="adpro_District.browse" caption="mainMsg://menu_config.adpro_District.browse"/>
         <item screen="adpro_Village.browse" caption="mainMsg://menu_config.adpro_Village.browse"/>
     </menu>
-    <item icon="font-icon:ENVELOPE" id="inbox" screen="adpro_Inbox.browse" caption="mainMsg://menu_config.adpro_Inbox.browse"/>
+    <menu icon="font-icon:DESKTOP" id="application" caption="mainMsg://menu_config.application">
+        <item id="institution" screen="adpro_Institution.browse"
+              caption="mainMsg://menu_config.adpro_Institution.browse"/>
+        <item id="inbox" screen="adpro_Inbox.browse"
+              caption="mainMsg://menu_config.adpro_Inbox.browse"/>
+        <item screen="adpro_Institution.browse" caption="mainMsg://menu_config.adpro_Institution.browse"/>
+    </menu>
 </menu-config>
